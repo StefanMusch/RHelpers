@@ -1,11 +1,17 @@
-Package: NAME
+Package: RHelpers   
 Type: Package
-Title: What the Package Does (Title Case)
+Title: General R Functions 
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Authors@R: c(
+    person("Stefan", "Musch", email = "tom@gradientmetrics.com ", role  = c("aut", "cre"))
+Maintainer: Stefan Musch <stefan_musch2@hotmail.com>
+Description: Over the years of working with R in the Market(ing) research sector,
+    I've gathed a bunch of useful functions to help me out. This is a collection
+    of these functions, wrapped up into a package.
+Imports: 
+License: GPL-2
 Encoding: UTF-8
-LazyData: true
+URL: https://github.com/StefanMusch/RHelpers
+RoxygenNote: 6.1.1
+Suggests: 
+VignetteBuilder: knitr
