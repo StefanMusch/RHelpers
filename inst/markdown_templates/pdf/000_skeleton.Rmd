@@ -1,0 +1,107 @@
+---
+output: 
+  pdf_document:
+    keep_tex: true
+    latex_engine: xelatex
+    highlight: "default"
+    number_sections: true
+    df_print: kable
+
+urlcolor: blue
+
+params:
+  report_title: "Title"
+
+mainfont: IBM Plex Sans
+
+header-includes: 
+  \usepackage{graphicx}
+  \usepackage{fontspec}
+  \usepackage{fancyhdr}
+  \pagestyle{fancy}
+  \usepackage{color}
+  \usepackage{hyperref}
+  \usepackage{longtable}
+  \setlength{\LTleft}{2em}
+  \usepackage{booktabs}
+  \usepackage{longtable}
+  \usepackage{array}
+  \usepackage{multirow}
+  \usepackage{wrapfig}
+  \usepackage{float}
+  \usepackage{xcolor}
+  \usepackage{pdflscape}
+  \usepackage{tabu}
+  \usepackage{threeparttable}
+  \usepackage{caption}
+  \usepackage{makecell}
+  \usepackage{multicol}
+  \usepackage{lscape}
+  \usepackage{eso-pic}
+  \usepackage{multicol}
+  \newcommand{\hideFromPandoc}[1]{#1}
+  \hideFromPandoc{
+    \let\Begin\begin
+    \let\End\end
+  }
+
+---
+\definecolor{g6tr_blue}{RGB}{54, 200, 239}
+\definecolor{g6tr_green}{RGB}{80, 189, 144}
+\definecolor{g6tr_yellow}{RGB}{255, 207, 96}
+\definecolor{g6tr_links}{RGB}{0, 120, 205}
+\setmonofont[]{IBM Plex Mono}
+\hypersetup{
+    linkcolor=black,
+    urlcolor=g6tr_links
+}
+
+
+\AddToShipoutPicture*{%
+ \AtPageUpperLeft{\raisebox{-\height}{\includegraphics[width = \paperwidth]{assets/pdf-gradient.png}}}}
+
+\fancyhead{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[R]{\includegraphics[width=0.2\textwidth]{assets/Gradient_Logo_Black.png}}
+
+\fancyfoot{}
+\fancyfoot[C]{\texttt{`r params$report_title`}}
+
+\fancyfoot[R]{\textbf{\thepage}}
+
+```{r setup, echo = F, warning = F, message = F}
+knitr::opts_chunk$set(echo = F, 
+                      eval = T,
+                      comment = "", 
+                      cache = F,
+                      message = F, 
+                      warning = F,
+                      fig.align = "center",
+                      fig.height = 4,
+                      fig.width = 8,
+                      strip.white = TRUE,
+                      size = '14',
+                      background = "#FFFFFF",
+                      results = "asis",
+                      out.width = "7.3in"
+                      )
+
+```
+
+```{r child = '001_title.Rmd'}
+```
+
+```{r child = '002_libraries.Rmd'}
+```
+
+```{r child = '003_data.Rmd', cache = T}
+```
+
+```{r child = '100_intro.Rmd'}
+```
+\newpage
+```{r child = '200_section.Rmd'}
+```
+\newpage
+```{r child = '300_section.Rmd'}
+```

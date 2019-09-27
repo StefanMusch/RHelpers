@@ -1,0 +1,9 @@
+```{r}
+# This is where you want to load all your libraries and set global enviorments
+library(knitr)
+library(kableExtra)
+library(tidyverse)
+library(g6tr)
+ggplot2::theme_set(g6tr::theme_g6tr(type = "transparent",base_size = 14))
+
+```

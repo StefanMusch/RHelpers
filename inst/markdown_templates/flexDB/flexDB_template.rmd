@@ -1,0 +1,163 @@
+---
+title: "Flexdashboard Title"
+runtime: shiny
+output: 
+  flexdashboard::flex_dashboard:
+    theme: readable
+    orientation: columns
+    css: style_flexDB.css
+---
+
+```{r setup, include=FALSE}
+# This chunk sets up the markdown specifics
+
+# Global knit options
+# This makes sure you can source R scripts when this report lives in /reports folder and the scripts live in /R
+knitr::opts_knit$set(root.dir = "../") 
+
+# Global chunk options
+knitr::opts_chunk$set(echo = F, 
+                      eval = T,
+                      comment = "", 
+                      cache = F,
+                      message = F, 
+                      warning = F,
+                      fig.align = "center",
+                      fig.height = 8,
+                      fig.width = 8,
+                      strip.white = TRUE
+                      )
+
+# Set global ggplot2 theme
+ggplot2::theme_set(g6tr::theme_g6tr(type = "grey"))
+
+# Create function for table generation
+add_table <- function(x, ...){
+  knitr::kable(x = x, 
+               format = "html") %>%
+      kableExtra::kable_styling(bootstrap_options =  c("striped", "condensed", "responsive"))
+}
+
+```
+
+```{r libraries & data, }
+
+# specify packages to be loaded during analysis
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+
+```
+
+
+Executive Summary 
+=====================================  
+
+Row
+-----------------------------------------------------------------------
+
+### Executive Summary
+
+**Highlight point 1**
+
+- Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. 
+- Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.
+
+**Highlight point 2**
+
+- Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. 
+- Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.
+
+
+Instructions
+=====================================  
+
+Row
+-----------------------------------------------------------------------
+
+### Interactive charts
+
+- Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. 
+
+- Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.
+
+Subject 1 
+=====================================  
+
+Navigation {.sidebar}
+-----------------------------------------------------------------------
+
+<img src= "Gradient_Logo_Black.png" style = "max-width:100%; vertical-align:top;">
+
+### Navigational menu {.no-mobile}
+
+<div class = "navigation" id="navigation">
+<h2>
+[Sub-section one](#section-sub-section-one)<br><br>
+[Sub-section two](#section-sub-section-two)<br><br>
+[Sub-section three](#section-sub-section-three)<br><br>
+[Sub-section four](#section-sub-section-four)<br>
+</h2>
+</div>
+
+
+Row {data-width=750 .tabset .tabset-fade}
+-----------------------------------------------------------------------
+
+### Sub-section one
+
+```{r}
+library(plotly)
+
+iris_plot <-
+  iris %>%
+  ggplot(., aes(x = Sepal.Length, y = Sepal.Width, color = Species))+
+  geom_jitter() +
+  g6tr::scale_color_g6tr(palette = "core")
+
+ggplotly(iris_plot)
+
+```
+
+
+### Sub-section two
+
+```{r}
+library(leaflet)
+leaflet() %>%
+  addTiles() %>%
+  setView(lng = -73.9808, lat = 40.730610, zoom = 13)
+```
+
+
+### Sub-section three
+
+```{r}
+iris %>% 
+  head %>%
+  add_table()
+```
+
+
+### Sub-section four
+
+```{r}
+iris %>%
+  ggplot(., aes(x = Sepal.Length, y = Sepal.Width, color = Species))+
+  geom_jitter() +
+  g6tr::scale_color_g6tr(palette = "core")
+```
+
+
+
+
+Row {data-width=250}
+-----------------------------------------------------------------------
+
+### Main Takeaways
+
+- Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. 
+
+- Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.
+
+

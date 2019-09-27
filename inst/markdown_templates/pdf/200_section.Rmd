@@ -1,0 +1,21 @@
+# Section 2
+
+Use Kable & Kable Styling to create the tables you need.
+
+```{r}
+iris %>%
+  head(15) %>%
+  knitr::kable(., escape = F,
+               row.names = F,
+               format = "latex",
+               booktabs= T) %>%
+  kable_styling(full_width = FALSE,
+                font_size = 10,
+                latex_options = c("hold_position","repeat-header", "striped")) %>%
+  #landscape() %>%
+  column_spec(column = 1, width = "10em") %>%
+  column_spec(column = 2, width = "10em") %>%
+  column_spec(column = 3, width = "10em") %>%
+  column_spec(column = 4, width = "10em")
+  
+```

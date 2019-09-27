@@ -1,0 +1,4 @@
+```{r}
+# This is where you can load all the data required for the report
+
+```

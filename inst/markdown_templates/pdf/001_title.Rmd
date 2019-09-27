@@ -1,0 +1,19 @@
+\begin{titlepage}
+  \maketitle\thispagestyle{empty}
+
+\huge{\textbf{`r params$report_title`}}
+\newline
+\large{\today}
+\newline
+\large{Primary Analyst: \href{hello@gradientmetrics.com}{Your Name}} 
+\vspace{15mm} 
+
+
+\tableofcontents
+
+\begin{figure}[b]
+  \centering
+  \includegraphics[width=0.3\textwidth]{assets/Gradient_Logo_Black.png}
+\end{figure}
+
+\end{titlepage}

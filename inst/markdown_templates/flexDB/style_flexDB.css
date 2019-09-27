@@ -1,0 +1,159 @@
+@font-face {
+  font-family: "Cooper";
+  src: url("cooper-lt-bt/CooperBoldBT.ttf"); }
+@font-face {
+  font-family: "VCR";
+  src: url("fonts/VCR_OSD_MONO_1.001.ttf"); }
+@font-face {
+  font-family: "Georgia";
+  src: url("fonts/Georgia.ttf"); }
+@font-face {
+  font-family: "Anonymous";
+  src: url("fonts/AnonymousPro-Regular.ttf"); }
+.main-container {
+  padding-right: 35px !important;
+  padding-left: 35px !important; }
+  .main-container::before {
+    content: url("Gradient_Logo_Black.png") !important;
+    width: 130px;
+    position: relative;
+    height: auto;
+    left: -20px; }
+
+#logo {
+  margin: 25px 0px 0px 0px; }
+
+h1 {
+  font-family: Cooper !important;
+  font-size: 30px !important; }
+  h1.title {
+    font-family: Cooper;
+    text-transform: capitalize; }
+
+h2 {
+  font-size: 16px !important;
+  font-family: VCR !important;
+  text-transform: uppercase; }
+
+em {
+  font-style: normal !important; }
+
+h3 {
+  font-size: 17px; }
+
+h4 {
+  font-size: 17px !important; }
+  h4.date {
+    font-family: VCR;
+    font-style: normal; }
+
+h5 {
+  font-size: 16px; }
+
+h6 {
+  font-size: 12px; }
+
+.table th:not([align]) {
+  text-align: left; }
+
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto; }
+
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04); }
+
+img {
+  max-width: 100%;
+  height: auto; }
+
+.tabbed-pane {
+  padding-top: 12px; }
+
+button.code-folding-btn:focus {
+  outline: none; }
+
+caption {
+  font-family: Anonymous;
+  color: #000;
+  font-size: 12px !important; }
+
+table {
+  margin: 20px auto !important;
+  width: 85% !important;
+  padding: 15px !important;
+  border: 1px solid #000;
+  font-family: Anonymous !important;
+  font-size: 11px; }
+  table thead tr th {
+    border-bottom: 0px !important; }
+  table tbody tr {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc; }
+    table tbody tr:last-child {
+      border-bottom: 0px; }
+    table tbody tr td {
+      border-top: 0px !important; }
+
+/*# sourceMappingURL=styles.css.map */
+
+/* FlexDashboard Part */
+
+.navbar .nav > li > a{
+	font-weight: 700;
+	font-size: 14px;
+	font-family: Cooper;
+	
+}
+
+body {
+	font-family: Georgia;
+	font-size: 13px
+}
+.section.sidebar {
+  top: 66px;
+  padding: 10px;
+  border-radius: 3px;
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  vertical-align: center;
+  text-align: left;
+}
+
+.sidebar ul { padding-left: 20px; }
+
+/* hiding the tabs */
+
+.nav-tabs-custom > .nav-tabs {
+	visibility: hidden;
+    block-size: 1px;
+	box-sizing: border-box;
+	width: 100%;
+    height: 1px;
+}
+
+/* Link appearance for navigation */
+.navigation a:link, a:visited{
+    color: #003f6b;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.navigation a:hover{
+	color: #e2b21e;
+    text-decoration: none;
+    display: inline-block;
+}
+
+
+.chart-title {
+	color: black ;
+	text-align: left;	
+	font-family:cooper;
+	font-weight: bold;
+	text-transform: uppercase; 
+	letter-spacing: 0.02em;
+}
