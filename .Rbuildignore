@@ -1,0 +1,9 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+dev/
+Dockerfile
+^.*\.tar.gz$
+bitbucket-pipelines.yml
+^.*\.gitkeep$
+.vs/
+.vscode/
